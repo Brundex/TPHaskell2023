@@ -74,3 +74,24 @@ tieneUnSeguidorFiel = undefined
 -- describir qué hace la función: .....
 existeSecuenciaDeAmigos :: RedSocial -> Usuario -> Usuario -> Bool
 existeSecuenciaDeAmigos = undefined
+
+
+
+
+
+
+
+
+------------
+pertenece :: Eq a => a -> [a] -> Bool
+pertenece _ [] = False -- Si la lista está vacía, entonces el elemento no pertenece
+pertenece x (y:ys) 
+  | x == y    = True -- Si el elemento actual es igual a la cadena dada, entonces el elemento pertenece
+  | otherwise = pertenece x ys -- En caso contrario, seguimos buscando en la lista
+-- TESTS:
+-- usuario1 ["usuario1", "usuario2"]
+-- "usuario1" ["usuario1", "usuario2"]
+-- 1 [1, 2]
+-- True [False, False, True]
+-- pertenece (1,2) [(1,2),(1,1)]
+-- pertenece (2,1) [(1,2),(1,1)]
