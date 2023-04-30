@@ -95,3 +95,11 @@ pertenece x (y:ys)
 -- True [False, False, True]
 -- pertenece (1,2) [(1,2),(1,1)]
 -- pertenece (2,1) [(1,2),(1,1)]
+
+mismosElementos :: Eq a => [a] -> [a] -> Bool
+mismosElementos [] []     = True  -- Las listas vacías tienen los mismos elementos
+mismosElementos [] _      = False -- Si la primera lista está vacía, no tienen los mismos elementos
+mismosElementos (x:xs) ys = pertenece x ys && mismosElementos xs ys
+-- Si la primera lista no está vacía, verificamos si el primer elemento está en la segunda lista y continuamos verificando con el resto de la lista
+-- Utilizamos la función pertenece para verificar si el primer elemento está en la segunda lista
+-- Continuamos llamando recursivamente la función con el resto de la primera lista y la segunda lista
